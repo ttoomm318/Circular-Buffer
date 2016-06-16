@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CircularBuffer", "CircularBuffer\CircularBuffer.vcxproj", "{3835B1CF-264B-4A2F-BBF7-5CC65652A060}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CircularBufferTests", "CircularBufferTests\CircularBufferTests.vcxproj", "{A0ED8532-3573-4BBA-8456-6D5998E76DF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{3835B1CF-264B-4A2F-BBF7-5CC65652A060}.Debug|Win32.Build.0 = Debug|Win32
 		{3835B1CF-264B-4A2F-BBF7-5CC65652A060}.Release|Win32.ActiveCfg = Release|Win32
 		{3835B1CF-264B-4A2F-BBF7-5CC65652A060}.Release|Win32.Build.0 = Release|Win32
+		{A0ED8532-3573-4BBA-8456-6D5998E76DF4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A0ED8532-3573-4BBA-8456-6D5998E76DF4}.Debug|Win32.Build.0 = Debug|Win32
+		{A0ED8532-3573-4BBA-8456-6D5998E76DF4}.Release|Win32.ActiveCfg = Release|Win32
+		{A0ED8532-3573-4BBA-8456-6D5998E76DF4}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,13 +2,10 @@
 * Circular Buffer of Generic Value-type
 * Copyright (c) 2015
 * 
-* Arthur: Chungchen (Thomas) Hsieh 
+* Arthur: Chung-Chen (Thomas) Hsieh 
 * Email: ttoomm318@gmail.com
 *
 */
-
-#ifdef TEST_CIRCULAR_BUFFER
-
 #include "CircularBuffer.h"
 #include <iostream>
 #include <string>
@@ -21,7 +18,7 @@ void test_int_buffer()
 	buffer->print_buffer();
 
 	std::cout << "\n----add 8 elements----\n";
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < 8; ++i)
 		buffer->push_back(i * 3 + 1);
 	buffer->print_buffer();
 
@@ -42,7 +39,7 @@ void test_int_buffer()
 	}
 
 	std::cout << "\n----add 15 elements----\n";
-	for (int i = 0; i < 15; i++)
+	for (int i = 0; i < 15; ++i)
 		buffer->push_back(i * 2 + 1);
 	buffer->print_buffer();
 
@@ -66,12 +63,12 @@ void test_string_buffer()
 	buffer->print_buffer();
 
 	std::cout << "\n----add 6 elements----\n";
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 6; ++i)
 		buffer->push_back("item " + std::to_string(i));
 	buffer->print_buffer();
 
 	std::cout << "\n----add 7 elements----\n";
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; i < 7; ++i)
 		buffer->push_back("item " + std::to_string(i+10));
 	buffer->print_buffer();
 
@@ -83,7 +80,7 @@ void test_string_buffer()
 	try
 	{
 		std::cout << "\n----retrieve/pop first 3 elements----\n";
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 3; ++i) {
 			std::string temp = buffer->pop_front();
 			std::cout << "retrieved element " << i + 1 << ": " << temp << "\n";
 		}
@@ -91,8 +88,8 @@ void test_string_buffer()
 
 		std::cout << "\n----buffer assigned with move assignment operator----\n";
 		CircularBuffer<std::string> buffer_move;
-		buffer_move = [buffer](){ return *buffer; }();
-		buffer_move.print_buffer();
+		//buffer_move = [buffer](){ return *buffer; }();
+		//buffer_move.print_buffer();
 	}
 	catch (const std::out_of_range& e)
 	{
@@ -113,5 +110,3 @@ void main() {
 	test_int_buffer();
 	test_string_buffer();
 }
-
-#endif
