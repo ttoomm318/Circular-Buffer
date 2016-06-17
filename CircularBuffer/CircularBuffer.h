@@ -15,21 +15,13 @@
 #define CIRCULARBUFFER_API __declspec(dllimport) 
 #endif
 
-#include <iostream>
-#include <stdexcept>
-#include <string>
+#include <memory>
 
 // circular buffer class
 template<class T>
 class CIRCULARBUFFER_API CircularBuffer
 {
 public:
-	using value_type = T;
-	using pointer = T*;
-	using const_pointer = const T*;
-	using reference_type = T&;
-	using const_reference_type = const T&;
-
 	explicit CircularBuffer(size_t capacity = 20);
 	CircularBuffer(const CircularBuffer& other);
 	CircularBuffer(CircularBuffer&& other);
@@ -63,9 +55,9 @@ public:
 	size_t size() const { return size_; }
 
 protected:
-	T* buffer_;
 	size_t capacity_;
 	size_t size_;
 	int front_;
 	int back_;
+	T* buffer_;
 };

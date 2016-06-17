@@ -13,15 +13,17 @@
 
 // initialize buffer with a fixed capacity, default is 20
 template<class T> CircularBuffer<T>::CircularBuffer(size_t capacity)
-: buffer_(new T[capacity]), capacity_(capacity),
-size_(0), front_(-1), back_(-1)
+: capacity_(capacity), size_(0), front_(-1), back_(-1)
 {
+	if (capacity < 0)
+		throw std::invalid_argument("\nERROR: capacity cannot be less than one.\n");
+	buffer_ = new T[capacity];
 }
 
 // copy constructor
 template<class T> CircularBuffer<T>::CircularBuffer(const CircularBuffer& other)
-: buffer_(new T[other.capacity_]), capacity_(other.capacity_),
-size_(other.size_), front_(other.front_), back_(other.back_)
+: capacity_(other.capacity_), size_(other.size_), front_(other.front_), 
+back_(other.back_), buffer_(new T[other.capacity_])
 {
 	for (int i = front_; i != back_; i = (i + 1) % capacity_)
 		buffer_[i] = other.buffer_[i];

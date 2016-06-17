@@ -63,6 +63,28 @@ namespace CircularBufferTests
 	{
 	public:
 
+		TEST_METHOD(Constructor_RaisesInvalidArgumentException_ForZeroCapacity)
+		{
+			// Arrange
+
+
+			// Act
+			try
+			{
+				CircularBuffer<double> buffer(0);
+				Assert::Fail(L"No exception for zero capacity buffer creation.", LINE_INFO());
+			}
+			catch (std::invalid_argument)
+			{
+			}
+			catch (...)
+			{
+				Assert::Fail(L"Wrong exception for zero capacity buffer creation.", LINE_INFO());
+			}
+
+			// Assert
+		}
+
 		TEST_METHOD(Constructor_CreatesEmptyBufferOfExpectedLength_WithSpecifiedCapacity)
 		{
 			// Arrange
