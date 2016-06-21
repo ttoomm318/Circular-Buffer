@@ -15,7 +15,7 @@
 template<class T> CircularBuffer<T>::CircularBuffer(size_t capacity)
 : capacity_(capacity), size_(0), front_(-1), back_(-1)
 {
-	if (capacity < 0)
+	if (capacity <= 0)
 		throw std::invalid_argument("\nERROR: capacity cannot be less than one.\n");
 	buffer_ = new T[capacity];
 }

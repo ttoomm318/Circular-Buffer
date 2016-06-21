@@ -22,7 +22,7 @@ template<class T>
 class CIRCULARBUFFER_API CircularBuffer
 {
 public:
-	explicit CircularBuffer(size_t capacity = 20);
+	explicit CircularBuffer(size_t capacity);
 	CircularBuffer(const CircularBuffer& other);
 	CircularBuffer(CircularBuffer&& other);
 	CircularBuffer& operator=(CircularBuffer other);
@@ -55,6 +55,9 @@ public:
 	size_t size() const { return size_; }
 
 protected:
+	// default constructor for optimizing copy-and-swap idiom
+	CircularBuffer(){}
+
 	size_t capacity_;
 	size_t size_;
 	int front_;

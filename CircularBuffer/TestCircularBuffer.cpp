@@ -14,7 +14,7 @@
 void test_int_buffer() 
 {
 	std::cout << "Integer buffer of default size 20: \n";
-	CircularBuffer<int>* buffer = new CircularBuffer<int>();
+	CircularBuffer<int>* buffer = new CircularBuffer<int>(20);
 	buffer->print_buffer();
 
 	std::cout << "\n----add 8 elements----\n";
@@ -44,7 +44,7 @@ void test_int_buffer()
 	buffer->print_buffer();
 
 	std::cout << "\n----buffer assigned with copy assignment operator----\n";
-	CircularBuffer<int> buffer_copy;
+	CircularBuffer<int> buffer_copy(20);
 	buffer_copy = *buffer;
 	buffer_copy.print_buffer();
 
@@ -87,7 +87,7 @@ void test_string_buffer()
 		buffer->print_buffer();
 
 		std::cout << "\n----buffer assigned with move assignment operator----\n";
-		CircularBuffer<std::string> buffer_move;
+		CircularBuffer<std::string> buffer_move(20);
 		//buffer_move = [buffer](){ return *buffer; }();
 		//buffer_move.print_buffer();
 	}

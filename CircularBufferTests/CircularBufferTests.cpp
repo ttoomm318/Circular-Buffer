@@ -105,7 +105,7 @@ namespace CircularBufferTests
 
 
 			// Act
-			CircularBuffer<int> buffer;
+			CircularBuffer<int> buffer(20);
 
 			// Assert
 			Assert::IsTrue(buffer.capacity() == 20);
@@ -116,7 +116,7 @@ namespace CircularBufferTests
 		TEST_METHOD(CopyConstructor_CreatesDeepCopyOfSpecifiedBuffer_OfLValaueReference)
 		{
 			// Arrange
-			CircularBufferStub<int> source_buffer;
+			CircularBufferStub<int> source_buffer(20);
 			source_buffer.push_back(5);
 			source_buffer.push_back(6);
 			source_buffer.push_back(7);
@@ -158,11 +158,11 @@ namespace CircularBufferTests
 		TEST_METHOD(AssignmentOperator_PerformsDeepCopyOfSpecifiedBuffer_OfLValaueReference)
 		{
 			// Arrange
-			CircularBufferStub<int> source_buffer;
+			CircularBufferStub<int> source_buffer(20);
 			source_buffer.push_back(5);
 			source_buffer.push_back(6);
 			source_buffer.push_back(7);
-			CircularBufferStub<int> buffer;
+			CircularBufferStub<int> buffer(20);
 
 			// Act
 			buffer = source_buffer;
@@ -182,7 +182,7 @@ namespace CircularBufferTests
 			// Arrange
 			std::string str = "test";
 			std::string another_str = "another";
-			CircularBufferStub<std::string> buffer;
+			CircularBufferStub<std::string> buffer(20);
 
 			// Act
 			buffer = std::move(MoveSemanticsStub());
@@ -202,7 +202,7 @@ namespace CircularBufferTests
 		TEST_METHOD(PopFront_RemovesExpectedElementFromBufferAndReturnsIt)
 		{
 			// Arrange
-			CircularBufferStub<std::string> buffer;
+			CircularBufferStub<std::string> buffer(20);
 			std::string str = "test string";
 			std::string dumpStr = "dump";
 			buffer.push_back(str);
