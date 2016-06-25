@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CircularBuffer", "CircularBuffer\CircularBuffer.vcxproj", "{3835B1CF-264B-4A2F-BBF7-5CC65652A060}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CircularBufferTests", "CircularBufferTests\CircularBufferTests.vcxproj", "{A0ED8532-3573-4BBA-8456-6D5998E76DF4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3835B1CF-264B-4A2F-BBF7-5CC65652A060} = {3835B1CF-264B-4A2F-BBF7-5CC65652A060}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
