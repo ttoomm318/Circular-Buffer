@@ -141,7 +141,7 @@ namespace CircularBufferTests
 			std::string another_str = "another";
 
 			// Act
-			CircularBufferStub<std::string> buffer(MoveSemanticsStub());
+			CircularBufferStub<std::string> buffer = std::move(MoveSemanticsStub());
 
 			// Assert
 			Assert::IsTrue(buffer.capacity() == 5);
@@ -185,7 +185,7 @@ namespace CircularBufferTests
 			CircularBufferStub<std::string> buffer(20);
 
 			// Act
-			buffer = std::move(MoveSemanticsStub());
+			buffer = MoveSemanticsStub();
 
 			// Assert
 			Assert::IsTrue(buffer.capacity() == 5);
